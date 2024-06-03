@@ -6,6 +6,7 @@ aio_path = current_path.rsplit(os.path.sep, 2)[0]
 sys.path.append(aio_path)
 
 from aio24.validator import InputTypeValidator, PositiveInputValidator
+from aio24 import get_std_input
 
 
 @InputTypeValidator(int)
@@ -40,4 +41,7 @@ def print_metrics(tp: int, fp: int, fn: int):
 
 
 if __name__ == "__main__":
-    print_metrics(tp=2, fp=3, fn=4)
+    tp = get_std_input("tp = ", int)
+    fp = get_std_input("fp = ", int)
+    fn = get_std_input("fn = ", int)
+    print_metrics(tp=tp, fp=fp, fn=fn)
