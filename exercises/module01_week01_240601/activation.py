@@ -1,13 +1,14 @@
 import math
 import os
 import sys
-from typing import Any, Callable, Dict
+from typing import Callable, Dict
 
 current_path = sys.path[0]
 aio_path = current_path.rsplit(os.path.sep, 2)[0]
 sys.path.append(aio_path)
 
 from aio24.validator.base import InputTypeValidator
+from aio24 import is_number
 
 
 @InputTypeValidator(float)
@@ -27,14 +28,6 @@ def get_elu(x: float, alpha=0.01) -> float:
     if x <= 0:
         return alpha ** (math.e**x - 1)
     return x
-
-
-def is_number(x: Any) -> bool:
-    try:
-        float(x)
-        return True
-    except ValueError:
-        return False
 
 
 VALID_ACTIVATIONS: Dict[str, Callable] = {
