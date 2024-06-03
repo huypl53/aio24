@@ -29,7 +29,7 @@ def regression_loss():
         raise ValueError(f"num_samples {num_samples} must be number")
     num_samples = int(num_samples)
 
-    loss_name = input("Input loss function: ")
+    loss_name = input(f"Input loss function( {'|'.join(LOSS_FUNCTIONS)} ): ")
     if loss_name not in LOSS_FUNCTIONS:
 
         raise ValueError(f"{loss_name} is not a valid loss function")
