@@ -26,7 +26,7 @@ def get_relu(x: float) -> float:
 @InputTypeValidator(float)
 def get_elu(x: float, alpha=0.01) -> float:
     if x <= 0:
-        return alpha ** (math.e**x - 1)
+        return alpha * (math.e**x - 1)
     return x
 
 
