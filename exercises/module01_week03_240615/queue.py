@@ -5,7 +5,6 @@ class Queue:
     def __init__(self, capacity: int) -> None:
         self._capacity = capacity
         self._data: List[int] = []
-        pass
 
     def is_empty(self):
         return not bool(len(self._data))
